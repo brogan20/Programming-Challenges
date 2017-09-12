@@ -9,12 +9,12 @@ class Main {
     public static void main(String[] args) throws IOException {
         while (true){
            //Get the input and initialize the board
-           String size = input.readLine().trim();
+           //String size = input.readLine().trim();
+           String[] size = input.readLine().trim().split(" ");
            //Start finishing when last line is given
-           if (size.equals("0 0")) System.exit(0);
-
-           board = new char[Integer.parseInt(size.substring(0, size.indexOf(" ")))]
-                   [Integer.parseInt(size.substring(size.indexOf(" ") + 1))];
+           if ((size[0] + size[1]).equals("00")) System.exit(0);
+         
+           board = new char[Integer.parseInt(size[0])][Integer.parseInt(size[1])];
            for (int i = 0; i < board.length; i++) {
                board[i] = input.readLine().toCharArray();
             }
