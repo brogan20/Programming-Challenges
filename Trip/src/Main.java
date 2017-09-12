@@ -18,7 +18,6 @@ class Main {
                 moneyChangeString += 0;
             }
             output.write("$" + moneyChangeString + "\n");
-
         }
     }
     //Find how many students there are and get how much money each brought
