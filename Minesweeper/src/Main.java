@@ -16,13 +16,7 @@ class Main {
            board = new char[Integer.parseInt(size.substring(0, size.indexOf(" ")))]
                    [Integer.parseInt(size.substring(size.indexOf(" ") + 1))];
            for (int i = 0; i < board.length; i++) {
-               String line;
-               do {
-                   line = input.readLine();
-               } while (line.length() != board[i].length);
-               for (int j = 0; j < board[i].length; j++) {
-                   board[i][j] = line.toCharArray()[j];
-               }
+               board[i] = input.readLine().toCharArray();
             }
            if(field > 0) System.out.println();
             for (int r = 0; r < board.length; r++) {
