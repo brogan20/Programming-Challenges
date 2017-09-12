@@ -16,20 +16,22 @@ public class Main {
             for (int i = 0; i < currentInts.length; i++){
                 currentInts[i] = Integer.valueOf(lineIn[i+1]);
             }
+            boolean isJolly = true;
             jollys = new boolean[Integer.valueOf(lineIn[0])-1];
             for(int i = -1; i < jollys.length-1; i++){
                 int difference = Math.abs(currentInts[i+1] - currentInts[i+2])-1;
-
-                if (difference >= 0 && difference < jollys.length){
-                    jollys[difference] = true;
-                }
-
-            }
-            boolean isJolly = true;
-            for(int i = 0; i < jollys.length; i++){
-                if (!jollys[i]){
+                if(difference < 0 || difference > jollys.length-1){
                     isJolly = false;
                     break;
+                }
+                jollys[difference] = true;
+            }
+            if(isJolly){
+                for(int i = 0; i < jollys.length; i++){
+                    if (!jollys[i]){
+                        isJolly = false;
+                        break;
+                    }
                 }
             }
             if(isJolly){
