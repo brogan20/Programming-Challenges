@@ -5,7 +5,6 @@
       <module fileurl="file://$PROJECT_DIR$/Interpreter/Interpreter.iml" filepath="$PROJECT_DIR$/Interpreter/Interpreter.iml" />
       <module fileurl="file://$PROJECT_DIR$/Jolly Jumpers/Jolly Jumpers.iml" filepath="$PROJECT_DIR$/Jolly Jumpers/Jolly Jumpers.iml" />
       <module fileurl="file://$PROJECT_DIR$/Minesweeper/Minesweeper.iml" filepath="$PROJECT_DIR$/Minesweeper/Minesweeper.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/Programming-Challenges.iml" filepath="$PROJECT_DIR$/.idea/Programming-Challenges.iml" />
       <module fileurl="file://$PROJECT_DIR$/Trip/The Trip.iml" filepath="$PROJECT_DIR$/Trip/The Trip.iml" />
     </modules>
   </component>

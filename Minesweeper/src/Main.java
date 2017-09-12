@@ -60,7 +60,8 @@ class Main {
         }
     }
     static void outputBoard(){
-        System.out.println("Field #" + field++ + ":");
+        field++;
+        System.out.println("Field #" + field + ":");
         for (int i = 0; i < board.length; i++){
             for (int j = 0; j < board[i].length; j++){
                 System.out.print(board[i][j]);
