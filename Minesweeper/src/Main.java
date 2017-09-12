@@ -1,4 +1,4 @@
- import java.io.*;
+import java.io.*;
 
 class Main {
     static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
@@ -35,7 +35,7 @@ class Main {
                             }
                         }
                     }
-                    board[r][c] = Integer.toString(increment).toCharArray()[0];
+                    board[r][c] = (char)(increment + '0');
                 }
             }
         }
