@@ -10,7 +10,7 @@ public class Simple {
 		System.out.println(get);
 		
 		//Array in 2d
-		int[][] arr2d = new int[(int)(Math.random()*100)][(int)(Math.random()*100)];
+		int[][] arr2d = new int[(int)(Math.random()*50)][(int)(Math.random()*50)];
 		for(int i = 0; i < arr2d.length; i++){
 		    for(int j = 0; j < arr2d[i].length; j++){
 		        arr2d[i][j] = (int)(Math.random()*100)+1;
@@ -22,8 +22,10 @@ public class Simple {
 		        System.out.println(arr2d[i][j]);
 		    }
 		}
-		
-	}
+		struc test = new struc(10, 20);
+        System.out.println("A:" + test.geta() + " B:" + test.getb());
+
+    }
 	//Record/Structure
 	public static class struc{
 	    //Constants
