@@ -2,9 +2,10 @@ import java.io.*;
 
 public class Main {
 
-    BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+    static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 
-    public static void main(String[] args){
+    public static void main(String[] args) throws IOException{
+        int T = Integer.parseInt(input.readLine().trim());
 
     }
 }
