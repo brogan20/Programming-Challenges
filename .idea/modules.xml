@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Check the Check/Check the Check.iml" filepath="$PROJECT_DIR$/Check the Check/Check the Check.iml" />
       <module fileurl="file://$PROJECT_DIR$/Hartals/Hartals.iml" filepath="$PROJECT_DIR$/Hartals/Hartals.iml" />
       <module fileurl="file://$PROJECT_DIR$/Interpreter/Interpreter.iml" filepath="$PROJECT_DIR$/Interpreter/Interpreter.iml" />
       <module fileurl="file://$PROJECT_DIR$/Jolly Jumpers/Jolly Jumpers.iml" filepath="$PROJECT_DIR$/Jolly Jumpers/Jolly Jumpers.iml" />
       <module fileurl="file://$PROJECT_DIR$/Minesweeper/Minesweeper.iml" filepath="$PROJECT_DIR$/Minesweeper/Minesweeper.iml" />
       <module fileurl="file://$PROJECT_DIR$/Trip/The Trip.iml" filepath="$PROJECT_DIR$/Trip/The Trip.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Weapon Of Choice/Weapon Of Choice.iml" filepath="$PROJECT_DIR$/Weapon Of Choice/Weapon Of Choice.iml" />
     </modules>
   </component>
 </project>
