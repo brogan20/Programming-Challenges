@@ -23,7 +23,7 @@ public class Main {
                         }
                     }
                 }
-                if(day%(weekend)%7 ==0) weekend += 7;
+                if(day%7 ==0) weekend += 7;
             }
             System.out.println(hartals);
         }
