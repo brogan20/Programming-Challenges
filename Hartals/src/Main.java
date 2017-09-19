@@ -14,7 +14,7 @@ public class Main {
             }
             int hartals = 0;
             int weekend = 7;
-            for(int day = 1; day < days+1; day++){
+            for(int day = 1; day <= days; day++){
                 if(day%weekend != 0 && day%(weekend-1) != 0) {
                     for (int party = 0; party < HNums.length; party++) {
                         if (day % HNums[party] == 0) {
