@@ -7,6 +7,8 @@
       <module fileurl="file://$PROJECT_DIR$/Interpreter/Interpreter.iml" filepath="$PROJECT_DIR$/Interpreter/Interpreter.iml" />
       <module fileurl="file://$PROJECT_DIR$/Jolly Jumpers/Jolly Jumpers.iml" filepath="$PROJECT_DIR$/Jolly Jumpers/Jolly Jumpers.iml" />
       <module fileurl="file://$PROJECT_DIR$/Minesweeper/Minesweeper.iml" filepath="$PROJECT_DIR$/Minesweeper/Minesweeper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Interpreter/Stack.iml" filepath="$PROJECT_DIR$/Interpreter/Stack.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Stack 'em Up/Stack 'em Up.iml" filepath="$PROJECT_DIR$/Stack 'em Up/Stack 'em Up.iml" />
       <module fileurl="file://$PROJECT_DIR$/Trip/The Trip.iml" filepath="$PROJECT_DIR$/Trip/The Trip.iml" />
       <module fileurl="file://$PROJECT_DIR$/Weapon Of Choice/Weapon Of Choice.iml" filepath="$PROJECT_DIR$/Weapon Of Choice/Weapon Of Choice.iml" />
     </modules>
