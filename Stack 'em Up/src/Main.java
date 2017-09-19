@@ -22,15 +22,15 @@ public class Main {
         }
         Integer[] deckRef = deckStrings.keySet().toArray(new Integer[DECK_SIZE]);
 
-        int cases = Integer.parseInt(input.nextLine().trim());
+        Integer cases = Integer.parseInt(input.nextLine().trim());
         for(int case_ = 0; case_ < cases; case_++) {
 
             input.nextLine();
             //Get shuffles
-            int shuffleCases = Integer.parseInt(input.nextLine().trim());
-            ArrayList<int[]> shuffles = new ArrayList<>();
+            Integer shuffleCases = Integer.parseInt(input.nextLine().trim());
+            ArrayList<Integer[]> shuffles = new ArrayList<>();
             for(int i = 0; i < shuffleCases; i++){
-                int[] shuffle = new int[DECK_SIZE];
+                Integer[] shuffle = new Integer[DECK_SIZE];
                 for (int j = 0; j < DECK_SIZE; j++){
                     shuffle[j] = input.nextInt();
                 }
@@ -39,14 +39,15 @@ public class Main {
             //Shuffle
             Integer[] deck = new Integer[52];
             Integer[] previousDeck = Arrays.copyOf(deckRef, DECK_SIZE);
-            while(input.hasNextInt()){
-                int[] shuffle = shuffles.get(input.nextInt()-1);
+            String s;
+            while((s = input.nextLine()) != null && !s.equals("") ){
+                Integer[] shuffle = shuffles.get(Integer.parseInt(s)-1);
                 for (int i = 0; i < shuffle.length; i++){
                     deck[i] = previousDeck[shuffle[i]-1];
                 }
                 previousDeck = Arrays.copyOf(deck, DECK_SIZE);
             }
-            for (int card: deck) {
+            for (Integer card: deck) {
                 System.out.println(deckStrings.get(card));
             }
 
