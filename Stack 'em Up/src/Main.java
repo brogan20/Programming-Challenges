@@ -37,13 +37,19 @@ public class Main {
                 shuffles.add(shuffle);
             }
             //Shuffle
-            Integer[] deck = Arrays.copyOf(deckRef, DECK_SIZE);
+            Integer[] deck = new Integer[52];
+            Integer[] previousDeck = Arrays.copyOf(deckRef, DECK_SIZE);
             while(input.hasNextInt()){
                 int[] shuffle = shuffles.get(input.nextInt()-1);
                 for (int i = 0; i < shuffle.length; i++){
-
+                    deck[i] = previousDeck[shuffle[i]-1];
                 }
+                previousDeck = Arrays.copyOf(deck, DECK_SIZE);
             }
+            for (int card: deck) {
+                System.out.println(deckStrings.get(card));
+            }
+
         }
     }
 }
