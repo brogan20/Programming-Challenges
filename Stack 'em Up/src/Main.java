@@ -19,22 +19,21 @@ public class Main {
                 key++;
             }
         }
-        System.out.println(input.delimiter());
+
         Integer[] deckRef = deckStrings.keySet().toArray(new Integer[DECK_SIZE]);
 
         Integer cases = input.nextInt();
+        Integer casesDecrement = cases-1;
         for(int case_ = 0; case_ < cases; case_++) {
 
             input.nextLine();
             //Get shuffles
             Integer shuffleCases = input.nextInt();
-            ArrayList<Integer[]> shuffles = new ArrayList<>();
+            Integer[][] shuffles = new Integer[shuffleCases][52];
             for(int i = 0; i < shuffleCases; i++){
-                Integer[] shuffle = new Integer[DECK_SIZE];
                 for (int j = 0; j < DECK_SIZE; j++){
-                    shuffle[j] = input.nextInt();
+                    shuffles[i][j] = input.nextInt();
                 }
-                shuffles.add(shuffle);
             }
 
             //Shuffle
@@ -43,7 +42,7 @@ public class Main {
 
             input.useDelimiter("\n");
             while(input.hasNextInt()){
-                Integer[] shuffle = shuffles.get(input.nextInt()-1);
+                Integer[] shuffle = shuffles[input.nextInt()-1];
                 for (int i = 0; i < shuffle.length; i++){
                     deck[i] = previousDeck[shuffle[i]-1];
                 }
@@ -53,7 +52,7 @@ public class Main {
             for (Integer card: deck) {
                 System.out.println(deckStrings.get(card));
             }
-            System.out.println("");
+            if(case_ < casesDecrement) System.out.println();
         }
     }
 }
