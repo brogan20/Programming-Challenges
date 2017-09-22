@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Check the Check/Check the Check.iml" filepath="$PROJECT_DIR$/Check the Check/Check the Check.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Erdos Numbers/Erdos Numbers.iml" filepath="$PROJECT_DIR$/Erdos Numbers/Erdos Numbers.iml" />
       <module fileurl="file://$PROJECT_DIR$/Hartals/Hartals.iml" filepath="$PROJECT_DIR$/Hartals/Hartals.iml" />
       <module fileurl="file://$PROJECT_DIR$/Interpreter/Interpreter.iml" filepath="$PROJECT_DIR$/Interpreter/Interpreter.iml" />
       <module fileurl="file://$PROJECT_DIR$/Jolly Jumpers/Jolly Jumpers.iml" filepath="$PROJECT_DIR$/Jolly Jumpers/Jolly Jumpers.iml" />
