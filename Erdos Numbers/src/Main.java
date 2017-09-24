@@ -2,105 +2,105 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-    static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
-    static Map<String, Integer> erdosNums;
-    static Map<String, TreeSet<String>> authorMap;
-    final static String erdos = "Erdos, P.";
+    private static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+    private final static String erdos = "Erdos, P.";
 
     public static void main(String[] args) throws IOException {
         int scenarios = Integer.parseInt(input.readLine().trim());
+
         for (int scenario = 1; scenario <= scenarios; scenario++) {
             //Get number of papers and names
             String[] temp = input.readLine().trim().split(" ");
             int papers = Integer.parseInt(temp[0]);
             int nameNum = Integer.parseInt(temp[1]);
 
-
-            //INPUT
-            //Create array of all authors
-            List<List<String>> authors = new ArrayList<>();
+            //Get the inputs and split off the excess
+            String[][] paperDatabase = new String[papers][];
             for (int i = 0; i < papers; i++) {
-                authors.add(extractAuthors(input.readLine()));
+                paperDatabase[i] = input.readLine().split(":");
             }
-//            for (int i = 0; i < authors.size(); i++) {
-//                for (int j = 0; j < authors[i].length; j++) {
-//                    authors[i][j] = authors[i][j].trim() + ".";
-//                }
-//            }
-            //Get names to find erdos num for
-            String[] names = new String[nameNum];
-            for (int i = 0; i < nameNum; i++) {
-                names[i] = input.readLine().trim();
-            }
-            //END INPUT
 
-
-            //Connect all coauthors with each other.
-            authorMap = new TreeMap<>();
-            authorMap.put(erdos, new TreeSet<>());
-            for (int i = 0; i < authors.size(); i++) {
-                int authorSize = authors.get(i).size();
-                for (int j = 0; j < authorSize; j++) {
-                    String currentAuthor = authors.get(i).get(j);
-                    if (authorMap.containsKey(currentAuthor)) {
-                        for (int k = 0; k < authorSize; k++) {
-                            authorMap.get(currentAuthor).add(authors.get(i).get(k));
-                        }
+            //Get all the authors in a map
+            HashMap<String, HashSet<String>> coauthors = new HashMap<>();
+            for (String[] aPaperDatabase : paperDatabase) {
+                //Get a set of all the current paper's authors
+                HashSet<String> authors = new HashSet<>();
+                String[] names = aPaperDatabase[0].split(",");
+                for (int j = 0; j < names.length; j += 2) {
+                    if (j + 1 > names.length) {
+                        authors.add(names[j].trim());
                     } else {
-                        authorMap.put(currentAuthor, new TreeSet<>());
-                        for (int k = 0; k < authorSize; k++) {
-                            authorMap.get(currentAuthor).add(authors.get(i).get(k));
-                        }
+                        authors.add(names[j].trim() + ", " + names[j + 1].trim());
+                    }
+                }
+
+                //Associate authors with each other
+                HashSet<String> tempSet;
+                for (String author : authors) {
+                    if (coauthors.containsKey(author)) {
+                        coauthors.get(author).addAll(authors);
+                        coauthors.get(author).remove(author);
+                    } else {
+                        tempSet = new HashSet<>();
+                        tempSet.addAll(authors);
+                        tempSet.remove(author);
+                        coauthors.put(author, tempSet);
                     }
                 }
             }
 
-            //Start finding erdos numbers
-            erdosNums = new HashMap<>();
-            for (int i = 0; i < authorMap.get(erdos).size(); i++) {
-                erdosNumFinder(0, erdos);
+            //Find Erdos Nums
+            //Credit to whoever the person who led to this was
+            HashMap<String, Integer> erdosNums = new HashMap<>();
+            //Current authors being worked with
+            HashSet<String> working = new HashSet<>();
+            //The next ones - gotten from the previous
+            HashSet<String> nextWorking = new HashSet<>();
+            //Those who we have a erdos number for
+            HashSet<String> finished = new HashSet<>();
+            //Temporary set for to pass up to nextWorking eventually
+            HashSet<String> nextWork = new HashSet<>();
+
+            working.add(erdos);
+            finished.add(erdos);
+            erdosNums.put(erdos, 0);
+            int currNum = 1;
+            while (working.size() > 0) {
+                for (String s : working) {
+                    HashSet<String> finding = coauthors.get(s);
+                    if (finding == null) continue;
+
+                    for (String find : finding) {
+                        if (!finished.contains(find)) {
+                            finished.add(find);
+                            erdosNums.put(find, currNum);
+                            nextWork.add(find);
+                        }
+                    }
+                    nextWorking.addAll(nextWork);
+                    nextWork.clear();
+                }
+                working = nextWorking;
+                nextWorking = new HashSet<>();
+                currNum++;
+            }
+
+            //Get names to find erdos num for
+            String[] results = new String[nameNum];
+            for (int i = 0; i < nameNum; i++) {
+                results[i] = input.readLine().trim();
             }
 
             //Finally give a result
             System.out.println("Scenario " + scenario);
-            for (int i = 0; i < names.length; i++) {
-                if (erdosNums.containsKey(names[i])) {
-                    System.out.println(names[i] + " " + erdosNums.get(names[i]));
+            for (String current : results) {
+                if (erdosNums.containsKey(current)) {
+                    System.out.println(current + " " + erdosNums.get(current));
                 } else {
-                    System.out.println(names[i] + " infinity");
+                    System.out.println(current + " infinity");
                 }
             }
         }
-    }
-    //Credit to helvidios.blogspot.com for this method
-    private static List<String> extractAuthors(String paperDesc){
-        paperDesc = paperDesc.substring(0, paperDesc.indexOf(":"));
-        List< String > names = new ArrayList< String >();
-        int begin = 0;
-        int end = paperDesc.indexOf(".,", begin);
-
-        while(end != -1){
-            names.add(paperDesc.substring(begin, end + 1));
-            begin = end + 3;
-            end = paperDesc.indexOf(".,", begin);
-        }
-
-        if(begin < (paperDesc.length() - 1))
-            names.add(paperDesc.substring(begin));
-
-        return names;
-    }
-
-    private static void erdosNumFinder(int num, String name) {
-        if (!erdosNums.containsKey(name) || (erdosNums.get(name) > num)) {
-            for (int i = 0; i < authorMap.get(name).size(); i++) {
-                erdosNums.put(name, num);
-                Iterator<String> iterator = authorMap.get(name).iterator();
-                String s;
-                while (iterator.hasNext()) {
-                    erdosNumFinder(num + 1, iterator.next());
-                }
-            }
-        }
+        input.close();
     }
 }
