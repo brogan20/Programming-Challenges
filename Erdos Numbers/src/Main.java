@@ -14,40 +14,8 @@ public class Main {
             int papers = Integer.parseInt(temp[0]);
             int nameNum = Integer.parseInt(temp[1]);
 
-            //Get the inputs and split off the excess
-            String[][] paperDatabase = new String[papers][];
-            for (int i = 0; i < papers; i++) {
-                paperDatabase[i] = input.readLine().split(":");
-            }
+            //INPUT
 
-            //Get all the authors in a map
-            HashMap<String, HashSet<String>> coauthors = new HashMap<>();
-            for (String[] aPaperDatabase : paperDatabase) {
-                //Get a set of all the current paper's authors
-                HashSet<String> authors = new HashSet<>();
-                String[] names = aPaperDatabase[0].split(",");
-                for (int j = 0; j < names.length; j += 2) {
-                    if (j + 1 > names.length) {
-                        authors.add(names[j].trim());
-                    } else {
-                        authors.add(names[j].trim() + ", " + names[j + 1].trim());
-                    }
-                }
-
-                //Associate authors with each other
-                HashSet<String> tempSet;
-                for (String author : authors) {
-                    if (coauthors.containsKey(author)) {
-                        coauthors.get(author).addAll(authors);
-                        coauthors.get(author).remove(author);
-                    } else {
-                        tempSet = new HashSet<>();
-                        tempSet.addAll(authors);
-                        tempSet.remove(author);
-                        coauthors.put(author, tempSet);
-                    }
-                }
-            }
 
             //Find Erdos Nums
             //Credit to whoever the person who led to this was
@@ -104,3 +72,4 @@ public class Main {
         input.close();
     }
 }
+
