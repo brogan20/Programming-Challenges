@@ -11,11 +11,37 @@ public class Main {
         for (int scenario = 1; scenario <= scenarios; scenario++) {
             //Get number of papers and names
             String[] temp = input.readLine().trim().split(" ");
-            int papers = Integer.parseInt(temp[0]);
+            int paperNum = Integer.parseInt(temp[0]);
             int nameNum = Integer.parseInt(temp[1]);
 
-            //INPUT
+            HashMap<String, HashSet<String>> coauthors = new HashMap<>();
 
+            //INPUT
+            for (int i = 0; i < paperNum; i++) {
+                String[] paper = input.readLine().trim().split(":");
+                String[] nameParts = paper[0].split(",");
+
+                HashSet<String> authors = new HashSet<>();
+                for (int j = 0; j < nameParts.length; j += 2) {
+                    if(j + 1 >= nameParts.length){
+                        authors.add(nameParts[j].trim());
+                    } else {
+                        authors.add(nameParts[j].trim() + ", " + nameParts[j + 1].trim());
+                    }
+                }
+                HashSet<String> tempSet;
+                for (String author : authors) {
+                    if (coauthors.containsKey(author)){
+                        coauthors.get(author).addAll(authors);
+                        coauthors.get(author).remove(author);
+                    } else {
+                        tempSet = new HashSet<>();
+                        tempSet.addAll(authors);
+                        tempSet.remove(author);
+                        coauthors.put(author, tempSet);
+                    }
+                }
+            }
 
             //Find Erdos Nums
             //Credit to whoever the person who led to this was
