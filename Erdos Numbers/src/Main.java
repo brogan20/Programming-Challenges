@@ -21,6 +21,7 @@ public class Main {
                 String[] paper = input.readLine().trim().split(":");
                 String[] nameParts = paper[0].split(",");
 
+                //Break the input into little pieces and put the names back together
                 HashSet<String> authors = new HashSet<>();
                 for (int j = 0; j < nameParts.length; j += 2) {
                     if(j + 1 >= nameParts.length){
@@ -29,6 +30,7 @@ public class Main {
                         authors.add(nameParts[j].trim() + ", " + nameParts[j + 1].trim());
                     }
                 }
+                //Sort all the coauthors together
                 HashSet<String> tempSet;
                 for (String author : authors) {
                     if (coauthors.containsKey(author)){
@@ -55,6 +57,7 @@ public class Main {
             //Temporary set for to pass up to nextWorking eventually
             HashSet<String> nextWork = new HashSet<>();
 
+            //Start with Erdos, but also prevents his number from being overwritten in the future
             working.add(erdos);
             finished.add(erdos);
             erdosNums.put(erdos, 0);
@@ -62,8 +65,11 @@ public class Main {
             while (working.size() > 0) {
                 for (String s : working) {
                     HashSet<String> finding = coauthors.get(s);
+                    //Nonexistant authors can't have a number
                     if (finding == null) continue;
 
+                    //Get coauthors for the next iteration. Works because anyone who would be on this tier
+                    //Has been run before the next tier goes
                     for (String find : finding) {
                         if (!finished.contains(find)) {
                             finished.add(find);
@@ -79,13 +85,13 @@ public class Main {
                 currNum++;
             }
 
-            //Get names to find erdos num for
+            //Get names to find erdos numbers for
             String[] results = new String[nameNum];
             for (int i = 0; i < nameNum; i++) {
                 results[i] = input.readLine().trim();
             }
 
-            //Finally give a result
+            //Finally give a result for the judge
             System.out.println("Scenario " + scenario);
             for (String current : results) {
                 if (erdosNums.containsKey(current)) {
