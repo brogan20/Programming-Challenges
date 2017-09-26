@@ -1,9 +1,8 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 
 public class Main {
     private static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+    private static BufferedWriter output = new BufferedWriter(new OutputStreamWriter(System.out));
     public static void main(String[] args) throws IOException{
         String in;
         while ((in = input.readLine()) != null && !in.equals("")){
@@ -11,140 +10,141 @@ public class Main {
             for (char inChar : inArr) {
                 switch (inChar) {
                     case '1':
-                        System.out.print('`');
+                        output.write('`');
                         break;
                     case '2':
-                        System.out.print('1');
+                        output.write('1');
                         break;
                     case '3':
-                        System.out.print('2');
+                        output.write('2');
                         break;
                     case '4':
-                        System.out.print('3');
+                        output.write('3');
                         break;
                     case '5':
-                        System.out.print('4');
+                        output.write('4');
                         break;
                     case '6':
-                        System.out.print('5');
+                        output.write('5');
                         break;
                     case '7':
-                        System.out.print('6');
+                        output.write('6');
                         break;
                     case '8':
-                        System.out.print('7');
+                        output.write('7');
                         break;
                     case '9':
-                        System.out.print('8');
+                        output.write('8');
                         break;
                     case '0':
-                        System.out.print('9');
+                        output.write('9');
                         break;
                     case '-':
-                        System.out.print('0');
+                        output.write('0');
                         break;
                     case '=':
-                        System.out.print('-');
+                        output.write('-');
                         break;
                     case 'W':
-                        System.out.print('Q');
+                        output.write('Q');
                         break;
                     case 'E':
-                        System.out.print('W');
+                        output.write('W');
                         break;
                     case 'R':
-                        System.out.print('E');
+                        output.write('E');
                         break;
                     case 'T':
-                        System.out.print('R');
+                        output.write('R');
                         break;
                     case 'Y':
-                        System.out.print('T');
+                        output.write('T');
                         break;
                     case 'U':
-                        System.out.print('Y');
+                        output.write('Y');
                         break;
                     case 'I':
-                        System.out.print('U');
+                        output.write('U');
                         break;
                     case 'O':
-                        System.out.print('I');
+                        output.write('I');
                         break;
                     case 'P':
-                        System.out.print('O');
+                        output.write('O');
                         break;
                     case '[':
-                        System.out.print('P');
+                        output.write('P');
                         break;
                     case ']':
-                        System.out.print('[');
+                        output.write('[');
                         break;
                     case '\\':
-                        System.out.print(']');
+                        output.write(']');
                         break;
                     case 'S':
-                        System.out.print('A');
+                        output.write('A');
                         break;
                     case 'D':
-                        System.out.print('S');
+                        output.write('S');
                         break;
                     case 'F':
-                        System.out.print('D');
+                        output.write('D');
                         break;
                     case 'G':
-                        System.out.print('F');
+                        output.write('F');
                         break;
                     case 'H':
-                        System.out.print('G');
+                        output.write('G');
                         break;
                     case 'J':
-                        System.out.print('H');
+                        output.write('H');
                         break;
                     case 'K':
-                        System.out.print('J');
+                        output.write('J');
                         break;
                     case 'L':
-                        System.out.print('K');
+                        output.write('K');
                         break;
                     case ';':
-                        System.out.print('L');
+                        output.write('L');
                         break;
                     case '\'':
-                        System.out.print(';');
+                        output.write(';');
                         break;
                     case 'X':
-                        System.out.print('Z');
+                        output.write('Z');
                         break;
                     case 'C':
-                        System.out.print('X');
+                        output.write('X');
                         break;
                     case 'V':
-                        System.out.print('C');
+                        output.write('C');
                         break;
                     case 'B':
-                        System.out.print('V');
+                        output.write('V');
                         break;
                     case 'N':
-                        System.out.print('B');
+                        output.write('B');
                         break;
                     case 'M':
-                        System.out.print('N');
+                        output.write('N');
                         break;
                     case ',':
-                        System.out.print('M');
+                        output.write('M');
                         break;
                     case '.':
-                        System.out.print(',');
+                        output.write(',');
                         break;
                     case '/':
-                        System.out.print('.');
+                        output.write('.');
                         break;
                     default:
-                        System.out.print(inChar);
+                        output.write(inChar);
                         break;
                 }
             }
-            System.out.println();
+            output.newLine();
         }
+        output.close();
     }
 }
