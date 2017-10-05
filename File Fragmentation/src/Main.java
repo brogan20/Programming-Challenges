@@ -1,10 +1,10 @@
 import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Main {
     static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
-
     static String[] frags;
 
     public static void main(String[] args) throws IOException{
@@ -18,8 +18,7 @@ public class Main {
             int low = Integer.MAX_VALUE;
             int high = 0;
 
-            for (int j = 0; j < 288; j++) {
-                in = input.readLine();
+            while (!(in = input.readLine()).equals("")){
                 if(!in.equals("")){
                     if(in.length() < low){
                         low = in.length();
@@ -33,21 +32,16 @@ public class Main {
             }
 
             int length = low + high;
+            char[][] thing = new char[576][length];
             int[] output = new int[length];
 
-            for (int i = 0; i < length; i++) {
-                int zeroes = 0;
-                int ones = 0;
-                for (int j = 0; j < length; j++) {
 
-                }
-                if(zeroes > ones){
-                    output[i] = zeroes;
-                } else {
-                    output[i] = ones;
-                }
+
+            //Outputs
+            for (int i : output) {
+                System.out.print(i);
             }
-
+            System.out.println();
         }
     }
 }
