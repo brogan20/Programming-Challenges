@@ -1,47 +1,47 @@
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
 
 public class Main {
-    static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
-    static String[] frags;
+    static Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) throws IOException{
-        int cases = Integer.parseInt(input.readLine());
-        input.readLine();
+        int cases = Integer.parseInt(input.nextLine());
 
         for (int caseNum = 0; caseNum < cases; caseNum++) {
-            frags = new String[288];
+            ArrayList<String> frags = new ArrayList<>();
             String in;
+            while (!(in = input.nextLine()).equals("")){
+                frags.add(in);
+            }
 
-            int low = Integer.MAX_VALUE;
-            int high = 0;
-
-            while (!(in = input.readLine()).equals("")){
-                if(!in.equals("")){
-                    if(in.length() < low){
-                        low = in.length();
-                    }else if(in.length() > high){
-                        high = in.length();
+            Map<String, Integer> combos = new HashMap<>();
+            for (String fragOne : frags) {
+                for (String fragTwo : frags) {
+                    if (fragOne != fragTwo) {
+                        String concat = fragOne + fragTwo;
+                        if (combos.containsKey(concat)) {
+                            combos.replace(concat, combos.get(concat) + 1);
+                        } else {
+                            combos.put(concat, 1);
+                        }
                     }
-                    frags[caseNum] = in;
-                } else {
-                    break;
                 }
             }
 
-            int length = low + high;
-            char[][] thing = new char[576][length];
-            int[] output = new int[length];
-
-
-
-            //Outputs
-            for (int i : output) {
-                System.out.print(i);
+            int highNum = -1;
+            String value = "";
+            for (Map.Entry<String, Integer> combo : combos.entrySet()) {
+                if (combo.getValue() >= highNum){
+                    highNum = combo.getValue();
+                    value = combo.getKey();
+                }
             }
-            System.out.println();
+            System.out.println(value + "\n");
         }
     }
 }
