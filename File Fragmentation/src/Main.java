@@ -1,5 +1,4 @@
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
@@ -49,11 +48,11 @@ public class Main {
                 for (int j = 0; j < charMap.length; j++) {
                     if(charMap[j][i] == '0'){
                         zeros++;
-                    } else {
+                    } else if (charMap[j][i] == '1'){
                         ones++;
                     }
                 }
-                if (zeros >= ones){
+                if (zeros > ones){
                     output[i] = 0;
                 } else {
                     output[i] = 1;
