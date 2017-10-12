@@ -12,17 +12,23 @@ public class Main {
     public static void main(String[] args) throws IOException{
         int cases = Integer.parseInt(input.nextLine());
 
-        for (int caseNum = 0; caseNum < cases; caseNum++) {
+        for (int caseNum = 0; caseNum <= cases; caseNum++) {
             ArrayList<String> frags = new ArrayList<>();
             String in;
-            while (!(in = input.nextLine()).equals("")){
+            int high = -1;
+            int low = Integer.MAX_VALUE;
+            while (input.hasNextLine() && !(in = input.nextLine()).equals("")){
+                if(in.length() > high) high = in.length();
+                if(in.length() < low) low = in.length();
                 frags.add(in);
             }
 
+            int maxLength = high + low;
             Map<String, Integer> combos = new HashMap<>();
             for (String fragOne : frags) {
                 for (String fragTwo : frags) {
-                    if (fragOne != fragTwo) {
+                    int length = fragOne.length() + fragTwo.length();
+                    if (fragOne != fragTwo && length <= maxLength) {
                         String concat = fragOne + fragTwo;
                         if (combos.containsKey(concat)) {
                             combos.replace(concat, combos.get(concat) + 1);
@@ -41,7 +47,8 @@ public class Main {
                     value = combo.getKey();
                 }
             }
-            System.out.println(value + "\n");
+            System.out.println(value + " ");
+            if (caseNum != cases) System.out.println();
         }
     }
 }
