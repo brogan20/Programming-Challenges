@@ -42,7 +42,7 @@ public class Main {
             int highNum = -1;
             String value = "";
             for (Map.Entry<String, Integer> combo : combos.entrySet()) {
-                if (combo.getValue() >= highNum){
+                if (combo.getValue() > highNum){
                     highNum = combo.getValue();
                     value = combo.getKey();
                 }
