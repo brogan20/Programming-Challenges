@@ -47,7 +47,7 @@ public class Main {
                     value = combo.getKey();
                 }
             }
-            System.out.println(value + " ");
+            System.out.println(value);
             if (caseNum != cases) System.out.println();
         }
     }
