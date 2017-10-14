@@ -33,7 +33,29 @@ public class Main {
         //Get pairs and solve
         while (!(in = input.readLine()).equals("")){
             String[] pair = in.split(" ");
+            //Ensures the pair is valid.
+            //If it isn't a valid pair, then print no solution
+            if ((!graph.containsKey(pair[0]) && !graph.containsKey(pair[1])) || (pair[0].length() != pair[1].length())){
+                System.out.println("No solution.\n");
+                continue;
+            }
+            //Start finding the path
+            //Breadth first search algorithm being used to find it
+            Set<String> processed = new HashSet<>();
+            Set<String> discovered = new HashSet<>();
+            Queue<String> queue = new LinkedList<>();
+            String current;
 
+            queue.add(pair[0]);
+            discovered.add(pair[0]);
+            while (queue.size() > 0){
+                current = queue.poll();
+                if(!processed.contains(current)){
+
+                    processed.add(current);
+                }
+
+            }
         }
     }
 }
