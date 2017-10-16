@@ -40,25 +40,7 @@ public class Main {
                 continue;
             }
             //Start finding the path
-            //Implementing Dijkstra's algorithm
-            Set<String> processed = new HashSet<>();
-            Map<String, Integer> discovered = new HashMap<>();
-            Queue<String> queue = new LinkedList<>();
-            String current;
-            int distance = 1;
 
-
-            queue.add(pair[0]);
-            discovered.put(pair[0],0);
-            while (queue.size() > 0){
-                current = queue.poll();
-                //Process the current word and continue down the graph
-                if(!processed.contains(current)){
-
-                    processed.add(current);
-                }
-
-            }
         }
     }
 }
