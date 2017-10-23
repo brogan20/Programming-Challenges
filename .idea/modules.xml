@@ -5,8 +5,19 @@
       <module fileurl="file://$PROJECT_DIR$/Check the Check/Check the Check.iml" filepath="$PROJECT_DIR$/Check the Check/Check the Check.iml" />
       <module fileurl="file://$PROJECT_DIR$/Doublets/Doublets.iml" filepath="$PROJECT_DIR$/Doublets/Doublets.iml" />
       <module fileurl="file://$PROJECT_DIR$/Erdos Numbers/Erdos Numbers.iml" filepath="$PROJECT_DIR$/Erdos Numbers/Erdos Numbers.iml" />
+      <module fileurl="file://$PROJECT_DIR$/File Fragmentation/File Fragmentation.iml" filepath="$PROJECT_DIR$/File Fragmentation/File Fragmentation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Hartals/Hartals.iml" filepath="$PROJECT_DIR$/Hartals/Hartals.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Interpreter/Interpreter.iml" filepath="$PROJECT_DIR$/Interpreter/Interpreter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Jolly Jumpers/Jolly Jumpers.iml" filepath="$PROJECT_DIR$/Jolly Jumpers/Jolly Jumpers.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Minesweeper/Minesweeper.iml" filepath="$PROJECT_DIR$/Minesweeper/Minesweeper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Polynomial Coefficients/Polynomial Coefficients.iml" filepath="$PROJECT_DIR$/Polynomial Coefficients/Polynomial Coefficients.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Programming-Challenges.iml" filepath="$PROJECT_DIR$/.idea/Programming-Challenges.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Stack 'em Up/Stack 'em Up.iml" filepath="$PROJECT_DIR$/Stack 'em Up/Stack 'em Up.iml" />
       <module fileurl="file://$PROJECT_DIR$/Stacks of Flapjacks/Stacks of Flapjacks.iml" filepath="$PROJECT_DIR$/Stacks of Flapjacks/Stacks of Flapjacks.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Trip/Trip.iml" filepath="$PROJECT_DIR$/Trip/Trip.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Vito's Family/Vito's Family.iml" filepath="$PROJECT_DIR$/Vito's Family/Vito's Family.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WERTYU/WERTYU.iml" filepath="$PROJECT_DIR$/WERTYU/WERTYU.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Weapon Of Choice/Weapon Of Choice.iml" filepath="$PROJECT_DIR$/Weapon Of Choice/Weapon Of Choice.iml" />
     </modules>
   </component>
 </project>
