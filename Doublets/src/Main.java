@@ -19,8 +19,7 @@ public class Main {
             for (String compareWord : graph.keySet()) {
                 //Make sure it isn't the same word
                 //And that they aren't different lengths
-                if (word == compareWord) continue;
-                if (word.length() != compareWord.length()) continue;
+                if (word == compareWord || word.length() != compareWord.length()) continue;
                 //Find the number of chars different
                 int diff = 0;
                 for (int pos = 0; pos < word.length(); pos++){
