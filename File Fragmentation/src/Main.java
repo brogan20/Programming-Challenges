@@ -6,12 +6,12 @@ public class Main {
     public static void main(String[] args){
         int cases = Integer.parseInt(input.nextLine());
 
-        for (int caseNum = 0; caseNum <= cases; caseNum++) {
+        for (int caseNum = 0; caseNum < cases; caseNum++) {
             ArrayList<String> frags = new ArrayList<>();
             String in;
             int high = -1;
             int low = Integer.MAX_VALUE;
-            while (input.hasNextLine() && !(in = input.nextLine()).equals("")){
+            while (!(in = input.nextLine()).equals("")){
                 if(in.length() > high) high = in.length();
                 if(in.length() < low) low = in.length();
                 frags.add(in);
@@ -22,7 +22,7 @@ public class Main {
             for (String fragOne : frags) {
                 for (String fragTwo : frags) {
                     int length = fragOne.length() + fragTwo.length();
-                    if (fragOne != fragTwo && length <= maxLength) {
+                    if (fragOne != fragTwo && length == maxLength) {
                         String concat = fragOne + fragTwo;
                         if (combos.containsKey(concat)) {
                             combos.replace(concat, combos.get(concat) + 1);
@@ -41,8 +41,11 @@ public class Main {
                     value = combo.getKey();
                 }
             }
-            System.out.println(value);
-            if (caseNum != cases) System.out.println();
+            if (caseNum > 0) {
+                System.out.println();
+            }
+            System.out.println(value.trim());
+
         }
     }
 }
