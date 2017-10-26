@@ -3,8 +3,8 @@ import java.util.*;
 
 public class Main {
 
-    static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
-    static Map<String, HashSet<String>> graph = new HashMap<>();
+    private static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+    private static Map<String, HashSet<String>> graph = new HashMap<>();
 
     public static void main(String[] args) throws IOException{
         //Get input dictionary
@@ -24,43 +24,56 @@ public class Main {
             }
             //Start finding the path
             //BFS courtesy of wikipedia pseudocode
-            Queue<String> queue = new LinkedList<>();
-            Set<String> visited = new HashSet<>();
-            Map<String, ArrayList<String>> pathInfo = new HashMap<>();
+            Queue<String> open_set = new LinkedList<>();
+            Set<String> closed_set = new HashSet<>();
+            Map<String, ArrayList<String>> dict = new HashMap<>();
             
             String start = pair[0];
-            pathInfo.put(start, new ArrayList<>());
-            pathInfo.get(start).add(start);
+            dict.put(start, new ArrayList<>());
+            dict.get(start).add(start);
             String end = pair[1];
 
-            queue.add(start);
-            while (queue.size() > 0){
-                
+            char[] parentArr;
+            char[] wordArr;
+            open_set.add(start);
+            while (open_set.size() > 0){
+                String parent_state = open_set.poll();
+                parentArr = parent_state.toCharArray();
                 //Find doublets here.
-                //To be implemented
-
-                String parent = queue.poll();
-
-                for (String child : graph.get(parent)) {
-                    if (visited.contains(child)) continue;
-
-                    if (!queue.contains(child)){
-                        if(!pathInfo.containsKey(child)){
-                            pathInfo.put(child, pathInfo.get(parent));
+                for (String word : graph.keySet()) {
+                    if(word.length() != parent_state.length() ) continue;
+                    wordArr = word.toCharArray();
+                    int diff = 0;
+                    for (int i = 0; i < parentArr.length; i++) {
+                        if(parentArr[i] != wordArr[i]){
+                            diff++;
                         }
-                        pathInfo.get(child).add(child);
-
-                        if(child.equals(end)){
-                            for (String word : pathInfo.get(child)) {
-                                System.out.println(word);
-                            }
-                            System.out.println();
-                        }
-
-                        queue.add(child);
+                        if(diff > 1)  break;
+                    }
+                    if (diff <= 1){
+                        graph.get(parent_state).add(word);
+                        graph.get(word).add(parent_state);
                     }
                 }
-                visited.add(parent);
+                if(parent_state.equals(end)){
+                    for (String word : dict.get(parent_state)) {
+                        System.out.println(word);
+                    }
+                    System.out.println();
+                }
+
+                for (String child : graph.get(parent_state)) {
+                    if (closed_set.contains(child)) continue;
+
+                    if (!open_set.contains(child)){
+                        if(!dict.containsKey(child)){
+                            dict.put(child, dict.get(parent_state));
+                        }
+                        dict.get(child).add(child);
+                        open_set.add(child);
+                    }
+                }
+                closed_set.add(parent_state);
             }
         }
     }
