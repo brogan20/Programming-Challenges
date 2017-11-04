@@ -24,7 +24,7 @@ public class Main {
                 }
                 a /= 10;
                 b /= 10;
-                if (lastPlaceAdd >= 10){
+                if (lastPlaceAdd > 9){
                     carries++;
                     carry = true;
                 }
