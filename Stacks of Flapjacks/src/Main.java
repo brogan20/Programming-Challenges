@@ -49,7 +49,6 @@ public class Main {
                     stack[i] = stack[j];
                     stack[j] = temp;
                 }
-                if (Arrays.toString(stack).equals(Arrays.toString(sortedStack))) break;
                 //Reverse to the bottom
                 System.out.print(sortedPos + " ");
                 for (int i = sortedPos, j = stack.length-1; i < j; i++, j--) {
@@ -62,7 +61,6 @@ public class Main {
             }
 
             System.out.println("0");
-            //System.out.println(Arrays.toString(stack));
         }
     }
 }

@@ -40,8 +40,9 @@ public class Main {
                 String parent_state = open_set.poll();
                 parentArr = parent_state.toCharArray();
                 //Find doublets here.
+                Set parentSet = graph.get(parent_state);
                 for (String word : graph.keySet()) {
-                    if(word.length() != parent_state.length() ) continue;
+                    if(word.length() != parent_state.length() || parentSet.contains(word) || word.equals(parent_state)) continue;
                     wordArr = word.toCharArray();
                     int diff = 0;
                     for (int i = 0; i < parentArr.length; i++) {
