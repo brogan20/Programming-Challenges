@@ -13,8 +13,8 @@ public class Main {
             BigInteger high = new BigInteger(splitIn[1]);
             //Credit to geeksforgeeks
             BigInteger f1 = new BigInteger("1"),
-                       f2 = new BigInteger("1"),
-                       f3 = new BigInteger("2");
+                       f2 = new BigInteger("2"),
+                       f3 = new BigInteger("3");
             int result = 0;
             while (f1.compareTo(high) <= 0){
                 if(f1.compareTo(low) >= 0) result++;
