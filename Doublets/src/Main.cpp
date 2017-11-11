@@ -13,6 +13,7 @@ using namespace std;
 map<string, vector<string>> graph;
 
 int main() {
+    //Credit to many people for input stuff... Somehow was the hardest part of all of this.
     //in needs to be larger so that it can store 2 words later on
     char in[34];
     //Array of vectors - one for each possible length
