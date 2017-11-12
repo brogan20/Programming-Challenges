@@ -9,6 +9,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         //1st line is the case number
         int cases = Integer.parseInt(input.readLine());
+        //Get rid of that pesky line between the case and values
         input.readLine();
         for (int caseNum = 0; caseNum < cases; caseNum++) {
             //Get all fragments and find the longest and shortest lengths

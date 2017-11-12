@@ -7,10 +7,9 @@ public class Main {
     public static void main(String[] args) throws IOException {
         int day = 0;
         String num = "";
-        while (!(num = input.readLine()).equals("") && input.ready()) {
+        while ((num = input.readLine()) != null && !num.equals("")) {
             ArrayList<Integer> start = new ArrayList<>();
             ArrayList<Integer> end = new ArrayList<>();
-            ArrayList<Integer> openTimes = new ArrayList<>();
             day++;
             int appointments = Integer.parseInt(num);
             for (int appointment = 0; appointment < appointments; appointment++) {
