@@ -113,7 +113,7 @@ public class Main {
                                     } else if (o2.games < o1.games){
                                         return -1;
                                     } else {
-                                        return -1*o1.name.compareToIgnoreCase(o2.name);
+                                        return o2.name.compareToIgnoreCase(o1.name);
                                     }
                                 }
                             }
