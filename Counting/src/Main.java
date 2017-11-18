@@ -6,7 +6,7 @@ import java.math.BigInteger;
 public class Main {
     static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
     public static void main(String[] args) throws IOException{
-        BigInteger[] n = new BigInteger[1001];
+        BigInteger[] n = new BigInteger[1000];
         n[0] = new BigInteger("2");
         n[1] = new BigInteger("5");
         n[2] = new BigInteger("13");
