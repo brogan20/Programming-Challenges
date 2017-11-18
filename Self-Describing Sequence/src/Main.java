@@ -28,33 +28,7 @@ public class Main {
         String in;
         while (!(in = input.readLine()).equals("0")){
             int n = Integer.parseInt(in);
-
-            //Will either find the f(n) through the mid or the highest number will be what is closest
-            //Thanks stack overflow for the basic binary search algorithm.
-            //Slight difference as we always want to get the higher of the options closest to n
-            //Has to be the higher option since the array stores the highest position for each number
-            int low = 0;
-            int high = sequence.length-1;
-            int mid;
-            boolean broke = false;
-            while (low <= high){
-                mid = (low + high)/2;
-
-                if(n < sequence[mid]){
-                    high = mid-1;
-                } else if(n > sequence[mid]){
-                    low = mid+1;
-                } else {
-                    System.out.println(mid+1);
-                    broke = true;
-                    break;
-                }
-            }
-            //+1 since zero indexed
-            //Need to make sure nothing was previously printed
-            if(!broke) {
-                System.out.println(high+1);
-            }
+            System.out.println(Math.abs(Arrays.binarySearch(sequence, n)+1));
         }
     }
 }
