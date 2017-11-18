@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Check the Check/Check the Check.iml" filepath="$PROJECT_DIR$/Check the Check/Check the Check.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Counting/Counting.iml" filepath="$PROJECT_DIR$/Counting/Counting.iml" />
       <module fileurl="file://$PROJECT_DIR$/Doublets/Doublets.iml" filepath="$PROJECT_DIR$/Doublets/Doublets.iml" />
       <module fileurl="file://$PROJECT_DIR$/Erdos Numbers/Erdos Numbers.iml" filepath="$PROJECT_DIR$/Erdos Numbers/Erdos Numbers.iml" />
       <module fileurl="file://$PROJECT_DIR$/File Fragmentation/File Fragmentation.iml" filepath="$PROJECT_DIR$/File Fragmentation/File Fragmentation.iml" />
@@ -21,6 +22,7 @@
       <module fileurl="file://$PROJECT_DIR$/Self-Describing Sequence/Self-Describing Sequence.iml" filepath="$PROJECT_DIR$/Self-Describing Sequence/Self-Describing Sequence.iml" />
       <module fileurl="file://$PROJECT_DIR$/Stack 'em Up/Stack 'em Up.iml" filepath="$PROJECT_DIR$/Stack 'em Up/Stack 'em Up.iml" />
       <module fileurl="file://$PROJECT_DIR$/Stacks of Flapjacks/Stacks of Flapjacks.iml" filepath="$PROJECT_DIR$/Stacks of Flapjacks/Stacks of Flapjacks.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Steps/Steps.iml" filepath="$PROJECT_DIR$/Steps/Steps.iml" />
       <module fileurl="file://$PROJECT_DIR$/Trip/Trip.iml" filepath="$PROJECT_DIR$/Trip/Trip.iml" />
       <module fileurl="file://$PROJECT_DIR$/Vito's Family/Vito's Family.iml" filepath="$PROJECT_DIR$/Vito's Family/Vito's Family.iml" />
       <module fileurl="file://$PROJECT_DIR$/WERTYU/WERTYU.iml" filepath="$PROJECT_DIR$/WERTYU/WERTYU.iml" />
