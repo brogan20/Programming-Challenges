@@ -5,7 +5,7 @@ public class Main {
     static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 
     static int primeNums = 0;
-    static int[] primes = new int[];
+    static int[] primes = new int[664579];
 
     static boolean[] prime = new boolean[10000001];
     public static void main(String[] args) throws IOException{
