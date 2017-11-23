@@ -10,18 +10,18 @@ public class Main {
     static boolean[] prime = new boolean[10000001];
     public static void main(String[] args) throws IOException{
         //Sieve of Eratosthenes
-        for (int i = 2; i < prime.length; i++) {
+        for (int i = 2; i < 10000001; i++) {
             if (!prime[i]){
                 primes[primeNums] = i;
                 primeNums++;
-                for (int j = (int)Math.pow(i, 2); j < prime.length; j += i) {
+                for (int j = (int)Math.pow(i, 2); j < 10000001; j += i) {
                     prime[j] = true;
                 }
             }
         }
 
         String in;
-        while (!(in = input.readLine()).equals("") && in != null){
+        while (!(in = input.readLine()).equals("")){
             int num = Integer.parseInt(in);
             if (num < 8){
                 System.out.println("Impossible.");
@@ -31,17 +31,17 @@ public class Main {
                 num -= 4;
                 for (int i = 0; primes[i] <= num/2; i++) {
                     int diff = num - primes[i];
-                    if (Arrays.binarySearch(primes, diff) >= 0){
+                    if (Arrays.binarySearch(primes, diff) > -1){
                         System.out.println("2 2 " + primes[i] + " " + diff);
                         break;
                     }
                 }
             } else if (num%2 == 1){
-                //Break it down so it's still an even number that will work with Goldbach's Conjecture
+                //Break it down so it's an even number that will work with Goldbach's Conjecture
                 num -= 5;
                 for (int i = 0; primes[i] <= num/2; i++) {
                     int diff = num - primes[i];
-                    if (Arrays.binarySearch(primes, diff) >= 0){
+                    if (Arrays.binarySearch(primes, diff) > -1){
                         System.out.println("2 3 " + primes[i] + " " + diff);
                         break;
                     }
