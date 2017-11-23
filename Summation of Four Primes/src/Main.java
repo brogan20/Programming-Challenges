@@ -1,13 +1,12 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.Arrays;
 
 public class Main {
     static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 
     static int primeNums = 0;
-    static int[] primes = new int[664579];
+    static int[] primes = new int[];
+
     static boolean[] prime = new boolean[10000001];
     public static void main(String[] args) throws IOException{
         //Sieve of Eratosthenes
@@ -20,7 +19,7 @@ public class Main {
                 }
             }
         }
-        //System.out.println(primeNums + " " + primes[445]);
+
         String in;
         while (!(in = input.readLine()).equals("") && in != null){
             int num = Integer.parseInt(in);
@@ -28,6 +27,7 @@ public class Main {
                 System.out.println("Impossible.");
             } else if (num%2 == 0){
                 //Break it down so it's still an even number that will work with Goldbach's Conjecture
+                //Credit to geeksforgeeks
                 num -= 4;
                 for (int i = 0; primes[i] <= num/2; i++) {
                     int diff = num - primes[i];
