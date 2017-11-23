@@ -1,10 +1,9 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.Scanner;
 
 public class Main {
     static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+    static BufferedWriter output = new BufferedWriter(new OutputStreamWriter(System.out));
     //static Scanner input = new Scanner(System.in);
     public static void main(String[] args)throws IOException{
         String in;
@@ -16,11 +15,13 @@ public class Main {
             //int a = input.nextInt();
             //int b = input.nextInt();
             if (b == 0){
-                System.out.println("0 1 " + a);
+                output.write("0 1 " + a);
+                output.newLine();
                 continue;
             }
             if (a == 0){
-                System.out.println("0 1 " + b);
+                output.write("0 1 " + b);
+                output.newLine();
                 continue;
             }
             int x = 0, y = 1, x_prev = 1, y_prev = 0, temp, q, r;
@@ -38,8 +39,11 @@ public class Main {
                 y = y_prev - q*y;
                 y_prev = temp;
             }
-            System.out.println(x_prev + " " + y_prev + " " + a);
+
+            output.write(x_prev + " " + y_prev + " " + a);
+            output.newLine();
             if (!input.ready()) break;
         }
+        output.close();
     }
 }
