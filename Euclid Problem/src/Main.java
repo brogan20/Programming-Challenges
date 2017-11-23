@@ -4,39 +4,42 @@ import java.io.InputStreamReader;
 import java.util.Scanner;
 
 public class Main {
-//    static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
-    static Scanner input = new Scanner(System.in);
+    static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+    //static Scanner input = new Scanner(System.in);
     public static void main(String[] args)throws IOException{
         String in;
-        while (input.hasNextInt()){
-//            String[] aAndB = in.split(" ");
-//            //Extended Euclidean Algorithm
-//            int a = Integer.parseInt(aAndB[0]);
-//            int b = Integer.parseInt(aAndB[1]);
-            int a = input.nextInt();
-            int b = input.nextInt();
+        while ((in = input.readLine()) != null){
+            String[] aAndB = in.split(" ");
+            //Extended Euclidean Algorithm
+            int a = Integer.parseInt(aAndB[0]);
+            int b = Integer.parseInt(aAndB[1]);
+            //int a = input.nextInt();
+            //int b = input.nextInt();
             if (b == 0){
-                System.out.printf("%d %d %d\n", 1, 0, a);
+                System.out.println("0 1 " + a);
                 continue;
             }
             if (a == 0){
-                System.out.printf("%d %d %d\n", 0, 1, b);
+                System.out.println("0 1 " + b);
                 continue;
             }
-            int x2 = 1, x1 = 0, y2 = 0, y1 = 1, q, r, x, y;
-            while (b > 0){
+            int x = 0, y = 1, x_prev = 1, y_prev = 0, temp, q, r;
+            while (b != 0){
                 q = a/b;
-                r = a - q*b;
-                x = x2 - q*x1;
-                y = y2 - q*y1;
+                r = a%b;
                 a = b;
                 b = r;
-                x2 = x1;
-                x1 = x;
-                y2 = y1;
-                y1 = y;
+
+                temp = x;
+                x = x_prev - q*x;
+                x_prev = temp;
+
+                temp = y;
+                y = y_prev - q*y;
+                y_prev = temp;
             }
-            System.out.printf("%d %d %d\n", x2, y2, a);
+            System.out.println(x_prev + " " + y_prev + " " + a);
+            if (!input.ready()) break;
         }
     }
 }
