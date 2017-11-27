@@ -3,7 +3,7 @@ import java.util.Arrays;
 
 public class Main {
     static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
-
+    static BufferedWriter output = new BufferedWriter(new OutputStreamWriter(System.out));
     static int primeNums = 0;
     static int[] primes = new int[664579];
 
@@ -24,7 +24,7 @@ public class Main {
         while (!(in = input.readLine()).equals("")){
             int num = Integer.parseInt(in);
             if (num < 8){
-                System.out.println("Impossible.");
+                output.write("Impossible.\n");
             } else if (num%2 == 0){
                 //Break it down so it's still an even number that will work with Goldbach's Conjecture
                 //Credit to geeksforgeeks
@@ -32,7 +32,8 @@ public class Main {
                 for (int i = 0; primes[i] <= num/2; i++) {
                     int diff = num - primes[i];
                     if (Arrays.binarySearch(primes, diff) > -1){
-                        System.out.println("2 2 " + primes[i] + " " + diff);
+                        output.write("2 2 " + primes[i] + " " + diff);
+                        output.newLine();
                         break;
                     }
                 }
@@ -42,12 +43,14 @@ public class Main {
                 for (int i = 0; primes[i] <= num/2; i++) {
                     int diff = num - primes[i];
                     if (Arrays.binarySearch(primes, diff) > -1){
-                        System.out.println("2 3 " + primes[i] + " " + diff);
+                        output.write("2 3 " + primes[i] + " " + diff);
+                        output.newLine();
                         break;
                     }
                 }
             }
             if (!input.ready()) break;
         }
+        output.close();
     }
 }

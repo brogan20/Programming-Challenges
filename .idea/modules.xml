@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Carmichael Numbers/Carmichael Numbers.iml" filepath="$PROJECT_DIR$/Carmichael Numbers/Carmichael Numbers.iml" />
       <module fileurl="file://$PROJECT_DIR$/Check the Check/Check the Check.iml" filepath="$PROJECT_DIR$/Check the Check/Check the Check.iml" />
       <module fileurl="file://$PROJECT_DIR$/Counting/Counting.iml" filepath="$PROJECT_DIR$/Counting/Counting.iml" />
       <module fileurl="file://$PROJECT_DIR$/Doublets/Doublets.iml" filepath="$PROJECT_DIR$/Doublets/Doublets.iml" />
