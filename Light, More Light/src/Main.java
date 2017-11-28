@@ -5,10 +5,8 @@ public class Main {
     static BufferedWriter output = new BufferedWriter(new OutputStreamWriter(System.out));
 
     public static void main(String[] args) throws IOException{
-        String in;
         double num;
-        while (!(in = input.readLine()).equals("0")){
-            num = Math.sqrt(Long.parseUnsignedLong(in, 10));
+        while ((num = Math.sqrt(Long.parseLong(input.readLine()))) != 0){
             if (num == (int)num){
                 output.write("yes\n");
             } else {
