@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException{
         double num;
-        while ((num = Math.sqrt(Long.parseLong(input.readLine()))) != 0){
+        while ((num = Math.sqrt(Long.parseUnsignedLong(input.readLine()))) != 0){
             if (num == (int)num){
                 output.write("yes\n");
             } else {
