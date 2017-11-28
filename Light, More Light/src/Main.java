@@ -6,8 +6,9 @@ public class Main {
 
     public static void main(String[] args) throws IOException{
         String in;
+        double num;
         while (!(in = input.readLine()).equals("0")){
-            double num = Math.sqrt(Long.parseLong(in));
+            num = Math.sqrt(Long.parseUnsignedLong(in, 10));
             if (num == (int)num){
                 output.write("yes\n");
             } else {
