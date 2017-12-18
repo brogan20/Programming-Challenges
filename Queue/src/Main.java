@@ -17,13 +17,6 @@ public class Main {
                 }
             }
         }
-        for (long[][] longs : precalculation) {
-            for (long[] aLong : longs) {
-                for (long l : aLong) {
-                    System.out.println(l);
-                }
-            }
-        }
         short cases = Short.parseShort(input.readLine());
         for (int i = 0; i < cases; i++) {
             String[] nums = input.readLine().split(" ");
