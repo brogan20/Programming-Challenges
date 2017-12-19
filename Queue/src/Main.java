@@ -6,7 +6,7 @@ public class Main {
     static BufferedWriter output = new BufferedWriter(new OutputStreamWriter(System.out));
 
     //N->P->R
-    static long precalculation[][][] = new long[17][17][17];
+    static int precalculation[][][] = new int[17][17][17];
     public static void main(String[] args) throws IOException{
         //https://stackoverflow.com/questions/44984008/arranging-people-in-queue-uva-10128
         precalculation[1][1][1] = 1;
