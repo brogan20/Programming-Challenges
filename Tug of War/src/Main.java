@@ -7,43 +7,44 @@ public class Main {
 
     public static void main(String[] args) throws IOException{
         int cases = Integer.parseUnsignedInt(input.readLine());
-        //Pass blank line
-        input.readLine();
-        while (cases-- > 0){
-            int numPeeps = Integer.parseUnsignedInt(input.readLine());
-            int[] weights = new int[numPeeps];
+
+        while (cases--  > 0) {
+            input.readLine();
+            int people = Integer.parseInt(input.readLine());
+
             int maxWeight = 0;
-            for (int i = 0; i < weights.length; i++) {
-                int currWeight = Integer.parseUnsignedInt(input.readLine());
-                weights[i] = currWeight;
-                maxWeight += currWeight;
+            int[] weights = new int[people];
+
+            for (int i = 0; i < people; i++) {
+                weights[i] = Integer.parseInt(input.readLine());
+                maxWeight += weights[i];
             }
 
-            long[] solutions = new long[maxWeight +1];
-            solutions[0] = 1;
-            for (int i = 0; i < numPeeps; i++) {
-                for (int j = maxWeight; j >= weights[i]; j--) {
-                    solutions[j] |= (solutions[j - weights[i]]) << 1;
+            long[] weightDistribution = new long[maxWeight / 2 + 1];
+            weightDistribution[0] = 1;
+
+            for (int i = 0; i < people; i++) {
+                int weight = weights[i];
+                for (int j = maxWeight/2; j >= weight; j--) {
+                    weightDistribution[j] |= weightDistribution[j - weight] << 1L;
                 }
             }
-            
-            int half = numPeeps/2 + 1;
-            int min = 0;
-            int max = Integer.MAX_VALUE;
-            for (int i = 0; i < solutions.length; i++){
-                for (int j = 0; j < half; j++){
-                    if ((solutions[i] & (1 << j)) != 0 && Math.abs(2*j-numPeeps) <= 1){
-                        if (Math.abs(maxWeight-2*i) < (max-min)){
-                            max = Math.max(maxWeight-i, i);
-                            min = Math.min(maxWeight-i, i);
-                        }
-                    }
+
+            boolean notSolved = true;
+            int solution = 0;
+            for(int i = maxWeight / 2; notSolved; i--) {
+                long weight = weightDistribution[i];
+                notSolved = (weight & (1L << (people / 2))) == 0;
+                if (notSolved && ((people % 2) == 1) && (weight & (1L << (people / 2 + 1))) != 0){
+                    notSolved = false;
                 }
+                solution = i;
             }
-            
-            output.write(min + " " + max);
+
+            output.write(solution + " " + (maxWeight - solution));
             output.newLine();
             if(cases != 0) output.newLine();
         }
+        output.close();
     }
 }
